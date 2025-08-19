@@ -1,0 +1,71 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001fd34f8a220 .scope module, "testbench" "testbench" 2 18;
+ .timescale 0 0;
+v000001fd34fd6080_0 .var "A", 3 0;
+v000001fd34f86400_0 .var "B", 3 0;
+v000001fd34f864a0_0 .net "cout", 0 0, v000001fd34fd5ea0_0;  1 drivers
+v000001fd34f86540_0 .net "sum", 3 0, v000001fd34fd5fe0_0;  1 drivers
+S_000001fd34fd5d10 .scope module, "dut" "sumador" 2 30, 2 1 0, S_000001fd34f8a220;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "A";
+    .port_info 1 /INPUT 4 "B";
+    .port_info 2 /OUTPUT 4 "sum";
+    .port_info 3 /OUTPUT 1 "cout";
+v000001fd34f86bd0_0 .net "A", 3 0, v000001fd34fd6080_0;  1 drivers
+v000001fd34f8bed0_0 .net "B", 3 0, v000001fd34f86400_0;  1 drivers
+v000001fd34fd5ea0_0 .var "cout", 0 0;
+v000001fd34fd5f40_0 .var "result", 4 0;
+v000001fd34fd5fe0_0 .var "sum", 3 0;
+E_000001fd34fc4d40 .event anyedge, v000001fd34f86bd0_0, v000001fd34f8bed0_0, v000001fd34fd5f40_0;
+    .scope S_000001fd34fd5d10;
+T_0 ;
+    %wait E_000001fd34fc4d40;
+    %load/vec4 v000001fd34f86bd0_0;
+    %pad/u 5;
+    %load/vec4 v000001fd34f8bed0_0;
+    %pad/u 5;
+    %add;
+    %store/vec4 v000001fd34fd5f40_0, 0, 5;
+    %load/vec4 v000001fd34fd5f40_0;
+    %parti/s 4, 0, 2;
+    %store/vec4 v000001fd34fd5fe0_0, 0, 4;
+    %load/vec4 v000001fd34fd5f40_0;
+    %parti/s 1, 4, 4;
+    %store/vec4 v000001fd34fd5ea0_0, 0, 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_000001fd34f8a220;
+T_1 ;
+    %vpi_call 2 42 "$monitor", "Tiempo=%0t | A=%b | B=%b | sum=%b | cout=%b", $time, v000001fd34fd6080_0, v000001fd34f86400_0, v000001fd34f86540_0, v000001fd34f864a0_0 {0 0 0};
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v000001fd34fd6080_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v000001fd34f86400_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v000001fd34fd6080_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v000001fd34f86400_0, 0, 4;
+    %delay 10, 0;
+    %vpi_call 2 60 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000001fd34f8a220;
+T_2 ;
+    %vpi_call 2 64 "$dumpfile", "sumador.vcd" {0 0 0};
+    %vpi_call 2 65 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001fd34f8a220 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Ejercicio1.v";
