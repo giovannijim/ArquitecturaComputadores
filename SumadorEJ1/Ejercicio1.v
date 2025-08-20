@@ -20,18 +20,18 @@ module testbench;
     // 1. DECLARACIÓN DE SEÑALES
     // ================================================
     // Señales para conectar al DUT (Design Under Test)
-    reg [3:0] A, B;
-    wire [3:0] sum; // Salida del contador (monitoreada por el testbench)
-    wire cout;
+    reg [3:0] A, B; // Entradas A y B
+    wire [3:0] sum; // Salida del sum (monitoreada por el testbench)
+    wire cout;  // Salida cout (monitoreada por el testbench)
     // ================================================
     // 2. INSTANCIACIÓN DEL DISEÑO BAJO PRUEBA (DUT)
     // ================================================
-    // Conectamos las señales del testbench al módulo contador
+    // Conectamos las señales del testbench al módulo sumador
     sumador dut (
-        .A(A),    // Conecta señal clk del testbench a clk del contador
-        .B(B), // Conecta señal reset del testbench a reset del contador
-        .sum(sum), // Conecta salida count del contador a señal del testbench
-        .cout(cout)
+        .A(A),    // Conecta señal A del testbench a A del sumador
+        .B(B), // Conecta señal B del testbench a B del sumador
+        .sum(sum), // Conecta salida sum del sumador a la señal sum del testbench
+        .cout(cout) // Conecta la salida cout del sumador a la señal cout del testbench
     );
 
     // ================================================
@@ -46,15 +46,16 @@ module testbench;
         // Secuencia de pruebas:
         // --------------------------
         
-        // Caso 1: Reset inicial
+        // Caso 1: Suma normal
+        // Valores para una suma normal.
         A = 4'b0001;
         B = 4'b0001;
         #10;        // Espera 10 unidades de tiempo (1 ciclo completo de reloj)
         
-        // Caso 2: Conteo normal
-        A = 4'b1111;
-        B = 4'b0001;
-        #10;        // Espera 50 unidades (5 ciclos completos de reloj)
+        // Caso 2: Overflow
+        A = 4'b1111;    // Se asigna 4'HF, para poder probar la funcionalidad de overflow
+        B = 4'b0001;    // Se assigna 4'H1, para que provoque el overflow
+        #10;        // Espera 10 unidades de tiempo (1 ciclo completo de reloj)
 
         // Finaliza la simulación
         $finish;  
