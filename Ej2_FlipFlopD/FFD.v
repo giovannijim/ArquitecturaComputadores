@@ -55,21 +55,21 @@ module testbench;
         // Secuencia de pruebas:
         // --------------------------
         
-        // Caso 1: Reset inicial
-        reset = 1;  // Activa reset (pone contador en cero)
+        // Paso 1: Reset inicial y establecer estado inicial
+        reset = 1;  // Activa reset (pone a Q en cero)
         D = 0;      // Se establece un valor inicial de la entrada
         #10;        // Espera 10 unidades de tiempo (1 ciclo completo de reloj)
         
-        // Caso 2: Salida
-        reset = 0;  // Desactiva reset (contador empieza a contar)
+        // Paso 2: Se prueba la salida
+        reset = 0;  // Desactiva reset (perrmite que se deje pasar la entrada D)
         D = 1;      // Se prende la salida para provocar una salida en Q
         #50;        // Espera 50 unidades (5 ciclos completos de reloj)
         
-        // Caso 3: Reset durante operación
+        // Paso 3: Reset durante operación
         reset = 1;  // Vuelve a activar reset (detiene conteo)
         #10;        // Espera 10 unidades (1 ciclo)
         
-        // Caso 4: Reanudar conteo
+        // Paso 4: se prueba que al resetear y tener una entrada LOW, ya no haya una salida
         reset = 0;  // Desactiva reset nuevamente
         D = 0;
         #30;        // Espera 30 unidades (3 ciclos)
