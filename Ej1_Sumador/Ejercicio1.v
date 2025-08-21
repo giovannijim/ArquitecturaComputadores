@@ -1,3 +1,6 @@
+// Arquitectura de computadores, Sección 10
+// Giovanni Jimenez 22469
+
 module sumador (
     input [3:0] A,
     input [3:0] B,

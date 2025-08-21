@@ -1,3 +1,6 @@
+// Arquitectura de computadores, Sección 10
+// Giovanni Jimenez 22469
+
 module FFD (
     input D,
     input clk,

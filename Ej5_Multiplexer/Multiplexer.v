@@ -1,3 +1,6 @@
+// Arquitectura de computadores, Sección 10
+// Giovanni Jimenez 22469
+
 module Multiplexer (
     input [1:0] A,
     input [1:0] B,

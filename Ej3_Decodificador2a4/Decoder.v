@@ -1,3 +1,6 @@
+// Arquitectura de computadores, Sección 10
+// Giovanni Jimenez 22469
+
 module decoder (
     input [1:0] sel,
     output reg [3:0] out

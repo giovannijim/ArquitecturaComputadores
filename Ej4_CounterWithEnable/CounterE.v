@@ -1,3 +1,6 @@
+// Arquitectura de computadores, Sección 10
+// Giovanni Jimenez 22469
+
 module contadorE (
     input clk,
     input reset,
@@ -22,7 +25,7 @@ module testbench;
     reg clk;         // Reloj (señal periódica generada por el testbench)
     reg reset;       // Señal de reset (controlada por el testbench)
     reg enable;      // Señal del enable (controlada por el testbench)
-    wire [3:0] count; // Salida del contador (monitoreada por el testbench)
+    wire [2:0] count; // Salida del contador (monitoreada por el testbench)
 
     // ================================================
     // 2. INSTANCIACIÓN DEL DISEÑO BAJO PRUEBA (DUT)
@@ -49,27 +52,38 @@ module testbench;
     // ================================================
     initial begin
         // Sistema de monitoreo: muestra señales en consola cuando cambian
-        $monitor("Tiempo=%0t | clk=%b | reset=%b | enable=%b | count=%d (%b)", 
+        $monitor("Tiempo=%0t | clk=%b | reset=%b | enable=%b | count=%d", 
                  $time, clk, reset, count, count);
         
         // --------------------------
         // Secuencia de pruebas:
         // --------------------------
         
-        // Caso 1: Reset inicial
+        // Paso 1: Reset inicial
         reset = 1;  // Activa reset (pone contador en cero)
+        enable = 0;  // establece inicialmente el enable en 0
         #10;        // Espera 10 unidades de tiempo (1 ciclo completo de reloj)
         
-        // Caso 2: Conteo normal
+        // Paso 2: Conteo normal
         reset = 0;  // Desactiva reset (contador empieza a contar)
-        #50;        // Espera 50 unidades (5 ciclos completos de reloj)
+        enable = 1;  // Permite el conteo
+        #20;        // Espera 50 unidades (5 ciclos completos de reloj)
+
+        // Paso 3: Reset durante conteo
+        reset = 1;  //  Activa el reset (se reincia el conteo)
+        enable = 1;  // Permite el conteo
+        #10;        // Espera 50 unidades (5 ciclos completos de reloj)
+
+        // Paso 4: se desactiva el reset, para permitir el conteo
+        reset = 0;  // Desactiva reset
+        #20         // Espera 50 unidades (5 ciclos completos de reloj)
         
-        // Caso 3: Reset durante operación
+        // Paso 5: Para el conteo debido a enable = 0
         reset = 0;  // Conteo normal, reset desactivado
         enable = 0;  // desactiva el enable, bloquea el conteo
         #10;        // Espera 10 unidades (1 ciclo)
         
-        // Caso 4: Reanudar conteo
+        // Paso 6: Reanudar conteo
         reset = 0;  // Desactiva reset nuevamente
         enable = 1;  // Activa el enable, permite el conteo
         #30;        // Espera 30 unidades (3 ciclos)
