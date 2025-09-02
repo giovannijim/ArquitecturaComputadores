@@ -1,0 +1,296 @@
+$date
+	Mon Sep 01 15:52:50 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1fs
+$end
+$scope module testbench $end
+$var wire 32 ! Sum [31:0] $end
+$var reg 16 " A [15:0] $end
+$var reg 16 # B [15:0] $end
+$var reg 1 $ Cin $end
+$var reg 64 % end_time [63:0] $end
+$var reg 64 & start_time [63:0] $end
+$scope module dut $end
+$var wire 16 ' A [15:0] $end
+$var wire 16 ( B [15:0] $end
+$var wire 1 $ Cin $end
+$var wire 16 ) sum_internal [15:0] $end
+$var wire 16 * carry [15:0] $end
+$var wire 32 + Sum [31:0] $end
+$scope begin ripple[1] $end
+$var parameter 2 , i $end
+$scope module FA $end
+$var wire 1 - A $end
+$var wire 1 . B $end
+$var wire 1 / Cin $end
+$var wire 1 0 Cout $end
+$var wire 1 1 Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[2] $end
+$var parameter 3 2 i $end
+$scope module FA $end
+$var wire 1 3 A $end
+$var wire 1 4 B $end
+$var wire 1 5 Cin $end
+$var wire 1 6 Cout $end
+$var wire 1 7 Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[3] $end
+$var parameter 3 8 i $end
+$scope module FA $end
+$var wire 1 9 A $end
+$var wire 1 : B $end
+$var wire 1 ; Cin $end
+$var wire 1 < Cout $end
+$var wire 1 = Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[4] $end
+$var parameter 4 > i $end
+$scope module FA $end
+$var wire 1 ? A $end
+$var wire 1 @ B $end
+$var wire 1 A Cin $end
+$var wire 1 B Cout $end
+$var wire 1 C Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[5] $end
+$var parameter 4 D i $end
+$scope module FA $end
+$var wire 1 E A $end
+$var wire 1 F B $end
+$var wire 1 G Cin $end
+$var wire 1 H Cout $end
+$var wire 1 I Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[6] $end
+$var parameter 4 J i $end
+$scope module FA $end
+$var wire 1 K A $end
+$var wire 1 L B $end
+$var wire 1 M Cin $end
+$var wire 1 N Cout $end
+$var wire 1 O Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[7] $end
+$var parameter 4 P i $end
+$scope module FA $end
+$var wire 1 Q A $end
+$var wire 1 R B $end
+$var wire 1 S Cin $end
+$var wire 1 T Cout $end
+$var wire 1 U Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[8] $end
+$var parameter 5 V i $end
+$scope module FA $end
+$var wire 1 W A $end
+$var wire 1 X B $end
+$var wire 1 Y Cin $end
+$var wire 1 Z Cout $end
+$var wire 1 [ Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[9] $end
+$var parameter 5 \ i $end
+$scope module FA $end
+$var wire 1 ] A $end
+$var wire 1 ^ B $end
+$var wire 1 _ Cin $end
+$var wire 1 ` Cout $end
+$var wire 1 a Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[10] $end
+$var parameter 5 b i $end
+$scope module FA $end
+$var wire 1 c A $end
+$var wire 1 d B $end
+$var wire 1 e Cin $end
+$var wire 1 f Cout $end
+$var wire 1 g Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[11] $end
+$var parameter 5 h i $end
+$scope module FA $end
+$var wire 1 i A $end
+$var wire 1 j B $end
+$var wire 1 k Cin $end
+$var wire 1 l Cout $end
+$var wire 1 m Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[12] $end
+$var parameter 5 n i $end
+$scope module FA $end
+$var wire 1 o A $end
+$var wire 1 p B $end
+$var wire 1 q Cin $end
+$var wire 1 r Cout $end
+$var wire 1 s Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[13] $end
+$var parameter 5 t i $end
+$scope module FA $end
+$var wire 1 u A $end
+$var wire 1 v B $end
+$var wire 1 w Cin $end
+$var wire 1 x Cout $end
+$var wire 1 y Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[14] $end
+$var parameter 5 z i $end
+$scope module FA $end
+$var wire 1 { A $end
+$var wire 1 | B $end
+$var wire 1 } Cin $end
+$var wire 1 ~ Cout $end
+$var wire 1 !" Sum $end
+$upscope $end
+$upscope $end
+$scope begin ripple[15] $end
+$var parameter 5 "" i $end
+$scope module FA $end
+$var wire 1 #" A $end
+$var wire 1 $" B $end
+$var wire 1 %" Cin $end
+$var wire 1 &" Cout $end
+$var wire 1 '" Sum $end
+$upscope $end
+$upscope $end
+$scope module FA0 $end
+$var wire 1 (" A $end
+$var wire 1 )" B $end
+$var wire 1 $ Cin $end
+$var wire 1 *" Cout $end
+$var wire 1 +" Sum $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1111 ""
+b1110 z
+b1101 t
+b1100 n
+b1011 h
+b1010 b
+b1001 \
+b1000 V
+b111 P
+b110 J
+b101 D
+b100 >
+b11 8
+b10 2
+b1 ,
+$end
+#0
+$dumpvars
+0+"
+0*"
+0)"
+0("
+0'"
+0&"
+0%"
+0$"
+0#"
+0!"
+0~
+0}
+0|
+0{
+0y
+0x
+0w
+0v
+0u
+0s
+0r
+0q
+0p
+0o
+0m
+0l
+0k
+0j
+0i
+0g
+0f
+0e
+0d
+0c
+0a
+0`
+0_
+0^
+0]
+0[
+0Z
+0Y
+0X
+0W
+0U
+0T
+0S
+0R
+0Q
+0O
+0N
+0M
+0L
+0K
+0I
+0H
+0G
+0F
+0E
+0C
+0B
+0A
+0@
+0?
+0=
+0<
+0;
+0:
+09
+07
+06
+05
+04
+03
+01
+00
+0/
+0.
+0-
+b0 +
+b0 *
+b0 )
+b0 (
+b0 '
+b0 &
+bx %
+0$
+b0 #
+b0 "
+b0 !
+$end
+#1
+b1 %

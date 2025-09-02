@@ -12,6 +12,7 @@ module contador (
     end
 endmodule
 
+
 module testbench;
     // ================================================
     // 1. DECLARACIÓN DE SEÑALES
