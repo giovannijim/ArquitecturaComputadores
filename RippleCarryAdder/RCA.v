@@ -103,17 +103,58 @@ module testbench;
         // Secuencia de pruebas:
         // --------------------------
         
-        // Tiempo antes de que cambien las salidas
-        start_time = $time;
-        // Caso 1
-        A = 16'b0000_0000_0000_0000;  B = 16'b0000_0000_0000_0000; 
-        Cin = 0; 
-         // Esperamos a que las señales se propaguen
-        #1
-        // Tomamos el tiempo luego de propagación
-        end_time = $time;
-         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cin=%b", 
-              end_time, A, A, B, B, Sum, Sum, Cin);
+         $display("===== RCA16 Test Cases =====");
+
+        // CASO 1: Suma de ceros
+        A = 0; B = 0; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 1: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 2: Uno más uno
+        A = 1; B = 1; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 2: A=%b, B=%b Cin=%b -> Sum=%b,  delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 3: Overflow máximo
+        A = 16'hFFFF; B = 1; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 3: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 4: Suma sin carry
+        A = 10; B = 5; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 4: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 5: Carry propagado largo
+        A = 32767; B = 1; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 5: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 6: Mitades altas
+        A = 61440; B = 3855; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 6: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 7: Aleatorios pequeños
+        A = 5; B = 3; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 7: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 8: Aleatorios grandes
+        A = 43690; B = 21845; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 8: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 9: Cero en un operando
+        A = 0; B = 21845; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 9: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
+        // CASO 10: Overflow doble
+        A = 16'hFFFF; B = 16'hFFFF; Cin = 0;
+        start_time = $time; #1; end_time = $time;
+        $display("Caso 10: A=%b, B=%b Cin=%b -> Sum=%b, delta_t=%0t", A, B, Cin, Sum, end_time - start_time);
+
 
         // Finaliza la simulación
         $finish;  
@@ -125,3 +166,4 @@ module testbench;
     end
 
 endmodule
+
