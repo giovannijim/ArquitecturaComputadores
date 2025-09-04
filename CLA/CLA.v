@@ -77,8 +77,9 @@ module testbench;
     // 3. GENERACIÓN DE ESTÍMULOS Y MONITOREO
     // ================================================
     initial begin
-        $monitor("Tiempo=%0t | A=%b (%0d) | B=%b (%0d) | SUMA=%b (%0d) | Cout=%b", 
-                 $time, A, A, B, B, SUM[7:0], SUM[7:0], SUM[8]);
+        
+    $monitor("Tiempo=%0t | A=%b (%0d) | B=%b (%0d) | Cin=%b (%0d) |  SUMA=%b (%0d) | Cout=%b", 
+        $time, A, A, B, B, Cin, Cin, SUM[7:0], SUM[7:0], SUM[8]);
 
         $display("===== CLA8 Test Cases =====");
 
