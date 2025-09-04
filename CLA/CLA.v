@@ -132,6 +132,10 @@ module testbench;
         start_time = $time; #1; end_time = $time;
         // $display("Caso 10: A=255, B=255 -> Sum=%bb, Cout=%b, Δt=%0t", SUM[7:0], SUM[8], end_time - start_time);
 
+        // CASO 11: Entradas 0, y Carry In 1
+        A = 8'h00; B = 8'h00; Cin = 1;
+        start_time = $time; #1; end_time = $time;
+
         // Finaliza la simulación
         $finish;  
     end
