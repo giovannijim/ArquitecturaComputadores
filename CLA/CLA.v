@@ -1,10 +1,14 @@
+// Arquitectura de computadores, Sección 10
+// Giovanni Jimenez 22469
+// -------------- Carry-Lookahead ADDER -------------
+
 `timescale 1ns / 1ps
 
 module CLA8 (
     input  [7:0] A,     // Operando A
     input  [7:0] B,     // Operando B
     input        Cin,   // Carry in (C[0])
-    output [8:0] SUM    // Salida de 9 bits (incluye carry out final)
+    output [15:0] SUM    // Salida de 9 bits (incluye carry out final)
 );
     wire [7:0] P;       // Señales de propagación
     wire [7:0] G;       // Señales de generación
@@ -46,7 +50,7 @@ module CLA8 (
     assign Sum = P ^ C[7:0];
 
     // 4. Salida final
-    assign SUM = {C[8], Sum};  // SUM[8] = carry out final, SUM[7:0] = suma
+    assign SUM = {7'b0,C[8], Sum};  // SUM[8] = carry out final, SUM[7:0] = suma
 
 endmodule
 
@@ -58,7 +62,7 @@ module testbench;
     reg [7:0] A;         // Señal de 8 bits (controlada desde el testbench)
     reg [7:0] B;         // Señal de 8 bits (controlada desde el testbench)
     reg Cin;              // Señal del carry in (controlada por el testbench)
-    wire [8:0] SUM;      // Salida del sumador (monitoreada por el testbench)
+    wire [15:0] SUM;      // Salida de de 16 bits del sumador (monitoreada por el testbench)
 
     time start_time, end_time;  // Variables para medir el tiempo
 
@@ -79,7 +83,7 @@ module testbench;
     initial begin
         
     $monitor("Tiempo=%0t | A=%b (%0d) | B=%b (%0d) | Cin=%b (%0d) |  SUMA=%b (%0d) | Cout=%b", 
-        $time, A, A, B, B, Cin, Cin, SUM[7:0], SUM[7:0], SUM[8]);
+        $time, A, A, B, B, Cin, Cin, SUM[15:0], SUM[15:0], SUM[8]);
 
         $display("===== CLA8 Test Cases =====");
 

@@ -1,5 +1,5 @@
 $date
-	Thu Sep 04 12:51:15 2025
+	Thu Sep 04 18:41:09 2025
 $end
 $version
 	Icarus Verilog
@@ -8,7 +8,7 @@ $timescale
 	1ps
 $end
 $scope module testbench $end
-$var wire 9 ! SUM [8:0] $end
+$var wire 16 ! SUM [15:0] $end
 $var reg 8 " A [7:0] $end
 $var reg 8 # B [7:0] $end
 $var reg 1 $ Cin $end
@@ -21,7 +21,7 @@ $var wire 1 $ Cin $end
 $var wire 8 ) G [7:0] $end
 $var wire 8 * P [7:0] $end
 $var wire 8 + Sum [7:0] $end
-$var wire 9 , SUM [8:0] $end
+$var wire 16 , SUM [15:0] $end
 $var wire 9 - C [8:0] $end
 $upscope $end
 $upscope $end
