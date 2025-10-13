@@ -1,5 +1,12 @@
-`timescale 1ns/1ps
+// ================================================
+//  Universidad del Valle de Guatemala
+//  Arquitectura de computadores, sección 10
+//  Giovanni Jimenez 22469
+//  Ever Yes 22510
+//  PROGRAM COUNTER
+// ================================================
 
+`timescale 1ns/1ps
 // =====================
 //  Módulo: PC
 // =====================
@@ -65,37 +72,53 @@ module testbench;
         next_pc  = 32'd0;
 
         // CASO 1: Bajo reset, PC debe ser 0
-        start_time = $time;
+        // start_time = $time;
         @(posedge clk);  // 1 ciclo con reset activo
-        end_time = $time;
+        // end_time = $time;
 
         // Soltar reset
         reset = 1'b0;
         @(posedge clk);
 
         // CASO 2: Cargar 4
-        start_time = $time;  next_pc = 32'd4;   @(posedge clk);  end_time = $time;
+        // start_time = $time; 
+        next_pc = 32'd4;   @(posedge clk);  
+        // end_time = $time;
 
         // CASO 3: Cargar 8
-        start_time = $time;  next_pc = 32'd8;   @(posedge clk);  end_time = $time;
+        // start_time = $time;  
+        next_pc = 32'd8;   @(posedge clk);  
+        // end_time = $time;
 
         // CASO 4: Cargar 12
-        start_time = $time;  next_pc = 32'd12;  @(posedge clk);  end_time = $time;
+        // start_time = $time;  
+        next_pc = 32'd12;  @(posedge clk);  
+        // end_time = $time;
 
         // CASO 5: Cargar 16
-        start_time = $time;  next_pc = 32'd16;  @(posedge clk);  end_time = $time;
+        // start_time = $time;  
+        next_pc = 32'd16;  @(posedge clk);  
+        // end_time = $time;
 
         // CASO 6: Reset asíncrono en medio de la secuencia
-        start_time = $time;  reset = 1'b1; #1;  @(posedge clk);  reset = 1'b0;  end_time = $time;
+        // start_time = $time;  
+        reset = 1'b1; #1;  @(posedge clk);  reset = 1'b0;  
+        // end_time = $time;
 
         // CASO 7: Continuar con 24
-        start_time = $time;  next_pc = 32'd24;  @(posedge clk);  end_time = $time;
+        // start_time = $time;  
+        next_pc = 32'd24;  @(posedge clk);  
+        // end_time = $time;
 
         // CASO 8: 28
-        start_time = $time;  next_pc = 32'd28;  @(posedge clk);  end_time = $time;
+        // start_time = $time;  
+        next_pc = 32'd28;  @(posedge clk);  
+        // end_time = $time;
 
         // CASO 9: 32
-        start_time = $time;  next_pc = 32'd32;  @(posedge clk);  end_time = $time;
+        // start_time = $time;  
+        next_pc = 32'd32;  @(posedge clk);  
+        // end_time = $time;
 
         // Finaliza la simulación
         @(posedge clk);
