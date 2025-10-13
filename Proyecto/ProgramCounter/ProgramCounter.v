@@ -57,7 +57,7 @@ module testbench;
     initial clk = 1'b0;
     always #5 clk = ~clk;
 
-    // Monitor en vivo (binario y decimal)
+    // Monitor
     initial begin
         $monitor("Tiempo=%0t | reset=%b | next_pc=%h (%0d) | current_pc=%h (%0d)",
                  $time, reset, next_pc, next_pc, current_pc, current_pc);

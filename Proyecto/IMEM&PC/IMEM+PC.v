@@ -66,7 +66,6 @@ module IMEM (
         memory[15] = 32'h00000000;
     end
 
-    // 16 palabras → índice 0..15 desde addr en bytes
     assign instruction = memory[addr[5:2]];
 endmodule
 

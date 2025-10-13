@@ -129,15 +129,10 @@ module testbench;
             decode_and_print(instruction, addr);
         end
 
-        // Probar alias de direcciones por wrap (16 entradas):
-        // p.ej., addr=16 debería mapearse a idx=0 (porque [3:0] = 0)
-        // addr = 32'd16; #1; decode_and_print(instruction, addr);
-        // addr = 32'd17; #1; decode_and_print(instruction, addr);
-
         $finish;
     end
 
-    // Dump para ver en GTKWave
+    // ver en GTKWave
     initial begin
         $dumpfile("IMEM.vcd");
         $dumpvars(0, testbench);
